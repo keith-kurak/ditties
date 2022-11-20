@@ -10,23 +10,23 @@ function ChordPhrase({ phrase }) {
   );
 }
 
-function TextPhrase({ phrase }) {
+function TextPhrase({ phrase, smallMode = false }) {
   return (
     <View>
-      <Text style={{ fontSize: 16 }}>{phrase}</Text>
+      <Text style={{ fontSize: smallMode ? 16 : 12 }}>{phrase}</Text>
     </View>
   );
 }
 
 
-export default function ChordReader({ song }) {
-  console.log(song)
+export default function ChordReader({ song, smallMode = false }) {
   return (
     <ScrollView contentContainerStyle={{ marginHorizontal: 8 }}>
-      <Text style={{ fontSize: 24, marginBottom: 12 }}>{song.name}</Text>
+      {!smallMode && <Text style={{ fontSize: 24 }}>{song.name}</Text>}
+      <View style={{ height: 12 }}/>
       {song.phrases.map((phrase, i) => (
         <View style={{ alignSelf: 'center'}} key={i}>
-          {typeof phrase === 'string' ? <TextPhrase phrase={phrase} /> : <ChordPhrase phrase={phrase} />}
+          {typeof phrase === 'string' ? <TextPhrase smallMode={smallMode} phrase={phrase} /> : <ChordPhrase phrase={phrase} />}
         </View>
       ))}
     </ScrollView>

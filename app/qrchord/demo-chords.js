@@ -23,6 +23,15 @@ const demoChords = [
       'chorus / verse',
       ['Am', 'Em', 'Dm', 'Em'],
     ],
+  },
+  {
+    name: 'Backstabber',
+    phrases: [
+      'x3',
+      ['Em', 'C', 'Am'],
+      'then...',
+      ['Em', 'D', 'C', 'G']
+    ]
   }
 ]
 
